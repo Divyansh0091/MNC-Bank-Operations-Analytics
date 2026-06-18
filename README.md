@@ -1,30 +1,30 @@
-Bank Operations Analytics Dashboard
-Project Overview
-This project focuses on analyzing Bank Operational Performance using SQL for data management and Power BI for interactive visualization. The goal of this dashboard is to provide actionable insights into volume trends, month-over-month growth, and key operational metrics to support data-driven decision-making.
+<h1 align="center">🏦 Bank Operations Analytics Dashboard</h1>
 
-Key Features & Insights
-KPI Overview: Real-time tracking of Total Volume, Average, Maximum, and Minimum performance metrics.
+<p align="center">
+  <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" alt="Power BI" />
+  <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white" alt="SQL" />
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+</p>
 
-Trend Analysis: Bar and Line charts to visualize monthly transaction volumes.
+---
 
-Growth Tracking: A performance-based chart (Waterfall/Clustered) to identify month-over-month percentage growth and declines.
+### 🚀 About The Project
+This project provides an **end-to-end data analytics solution** for banking operations. By transforming raw transactional data into meaningful insights, the dashboard enables stakeholders to track operational efficiency, identify growth bottlenecks, and monitor performance trends.
 
-Interactive Filtering: User-friendly slicers for deep-dive analysis by month.
+### 📊 Dashboard Highlights
+* **KPI Tracking**: Instant visibility into Min, Max, and Average transaction volumes.
+* **Trend Visualization**: Dynamic line and bar charts illustrating volume patterns over time.
+* **Performance Metrics**: Month-over-month growth analysis using advanced visual techniques.
+* **Interactive Design**: Fully responsive and filterable visuals for a seamless analytical experience.
 
-Conditional Formatting: Color-coded data visualization to highlight positive and negative growth trends.
+### 🛠 Tech Stack
+- **Dashboarding**: Power BI (DAX, Data Modeling)
+- **Database**: SQL (Data Retrieval, Schema Design, Data Manipulation)
+- **Version Control**: Git & GitHub
 
-Tech Stack
-Visualization: Microsoft Power BI
-
-Data Management: SQL (Schema Setup, Data Insertion, Analysis Queries)
-
-Language: DAX (Data Analysis Expressions)
-
-Project Structure
-01_schema_setup.sql: Database table structures.
-
-02_data_insertion.sql: Scripts for populating operational data.
-
-03_analysis_queries.sql: SQL scripts for data extraction and insights.
-
-Bank_Performance_report.pbix: The core Power BI dashboard file.
+### 📁 Repository Structure
+```text
+├── 01_schema_setup.sql      # Database initialization scripts
+├── 02_data_insertion.sql    # Data population scripts
+├── 03_analysis_queries.sql  # SQL insights and queries
+└── Bank_Performance_report.pbix # Interactive Power BI Dashboard

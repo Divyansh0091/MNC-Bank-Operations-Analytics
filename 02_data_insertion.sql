@@ -1,9 +1,3 @@
-CREATE TABLE Executive_Master (
-    Executive_ID INT PRIMARY KEY,
-    Executive_Name VARCHAR(50),
-    Training_Status VARCHAR(20),
-    Department VARCHAR(30)
-);
 select * from executive_ma
 
 CREATE TABLE Operational_Logs (
@@ -76,40 +70,5 @@ INSERT INTO Operational_Logs (Log_ID, Executive_ID, Log_Date, Shift, Volume_Proc
 (49, 4, '2026-06-10', 'Night', 230, 2, 92.00),
 (50, 5, '2026-06-15', 'Morning', 190, 5, 72.50);
 
-INSERT INTO Operational_Logs 
-SELECT Log_ID + 50, Executive_ID, Log_Date + INTERVAL '1 day', Shift, Volume_Processed + 5, Error_Count, Performance_Score - 0.5 FROM Operational_Logs;
-
-INSERT INTO Operational_Logs 
-SELECT Log_ID + 100, Executive_ID, Log_Date + INTERVAL '3 days', Shift, Volume_Processed - 3, Error_Count, Performance_Score + 0.2 FROM Operational_Logs WHERE Log_ID <= 100;
-
-INSERT INTO Operational_Logs 
-SELECT Log_ID + 200, Executive_ID, Log_Date + INTERVAL '7 days', Shift, Volume_Processed + 10, Error_Count, Performance_Score - 1.2 FROM Operational_Logs WHERE Log_ID <= 200;
-
-INSERT INTO Operational_Logs 
-SELECT Log_ID + 400, Executive_ID, Log_Date + INTERVAL '14 days', Shift, Volume_Processed - 8, Error_Count, Performance_Score + 0.8 FROM Operational_Logs WHERE Log_ID <= 400;
-
-INSERT INTO Operational_Logs 
-SELECT Log_ID + 800, Executive_ID, Log_Date + INTERVAL '28 days', Shift, Volume_Processed + 12, Error_Count, Performance_Score - 0.4 FROM Operational_Logs WHERE Log_ID <= 800;
-
-
-SELECT COUNT(*) FROM Operational_Logs;
-
-select * from executive_master;
-select * from operational_logs;
-
-SELECT 
-    TO_CHAR(Log_Date, 'YYYY-MM') AS Operation_Month,
-    SUM(Volume_Processed) AS Total_Volume,
-
-    LAG(SUM(Volume_Processed), 1) OVER (ORDER BY TO_CHAR(Log_Date, 'YYYY-MM')) AS Previous_Month_Volume,
-    ROUND(
-        ((SUM(Volume_Processed) - LAG(SUM(Volume_Processed), 1) OVER (ORDER BY TO_CHAR(Log_Date, 'YYYY-MM'))) / 
-        NULLIF(LAG(SUM(Volume_Processed), 1) OVER (ORDER BY TO_CHAR(Log_Date, 'YYYY-MM')), 0)::numeric) * 100, 2
-    ) AS MoM_Growth_Percent
-FROM Operational_Logs
-GROUP BY TO_CHAR(Log_Date, 'YYYY-MM')
-ORDER BY Operation_Month;
-
-
-
-
+-- Data: Populate operational records
+Add 02_data_insertion.sql script to insert sample transaction data for bank performance analysis.
